@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.ChequeatePage"
+             Title="Chequéate"
+             BackgroundColor="#F4F6F9">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+
+            <!-- TÍTULO -->
+            <Label Text="Test de Riesgo de Diabetes" 
+                   FontAttributes="Bold" 
+                   FontSize="22" 
+                   HorizontalOptions="Center" 
+                   TextColor="#0066CC"
+                   Margin="0,0,0,10"/>
+
+            <!-- PREGUNTA 1 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="1. ¿Tienes antecedentes de Diabetes Mellitus en tu familia?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P1_Opcion1" Content="Sin antecedentes conocidos" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P1_Opcion2" Content="Sí: Familiares lejanos (abuelos, tíos)" TextColor="#374151"/>
+                    <RadioButton x:Name="P1_Opcion3" Content="Sí: Familiares directos (padres o hermanos)" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 2 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="2. ¿Cuál fue tu último resultado de glucosa en sangre (en ayunas)?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P2_Opcion1" Content="Normal (Menos de 100 mg/dL)" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P2_Opcion2" Content="Alterada / Prediabetes (100 a 125 mg/dL)" TextColor="#374151"/>
+                    <RadioButton x:Name="P2_Opcion3" Content="Elevada / Diabetes (126 mg/dL o más)" TextColor="#374151"/>
+                    <RadioButton x:Name="P2_Opcion4" Content="Nunca me he realizado la prueba de glucosa" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 3 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="3. ¿Sientes sed excesiva e inusual durante el día (Polidipsia)?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P3_Opcion1" Content="Rara vez o nunca" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P3_Opcion2" Content="A veces, en días calurosos o tras hacer ejercicio" TextColor="#374151"/>
+                    <RadioButton x:Name="P3_Opcion3" Content="Frecuentemente, siento la boca seca casi todo el tiempo" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 4 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="4. ¿Con qué frecuencia sientes la necesidad de orinar por las noches (Poliuria)?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P4_Opcion1" Content="Ninguna o 1 vez por noche" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P4_Opcion2" Content="De 2 a 3 veces por noche" TextColor="#374151"/>
+                    <RadioButton x:Name="P4_Opcion3" Content="Más de 3 veces por noche" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 5 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="5. ¿Has experimentado hambre constante o ataques de ansiedad por comer azúcar (Polifagia)?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P5_Opcion1" Content="No, mantengo un apetito normal" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P5_Opcion2" Content="Ocasionalmente después de varias horas sin comer" TextColor="#374151"/>
+                    <RadioButton x:Name="P5_Opcion3" Content="Sí, siento hambre extrema incluso poco después de comer" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 6 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="6. ¿Has perdido peso recientemente sin estar a dieta o hacer ejercicio?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P6_Opcion1" Content="No, mi peso se mantiene estable" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P6_Opcion2" Content="He bajado un par de kilos paulatinamente" TextColor="#374151"/>
+                    <RadioButton x:Name="P6_Opcion3" Content="Sí, he tenido una pérdida de peso involuntaria y rápida" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 7 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="7. ¿Sueles presentar hormigueo, adormecimiento o ardor en pies y manos?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P7_Opcion1" Content="Nunca" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P7_Opcion2" Content="Sólo si mantengo una mala postura mucho tiempo" TextColor="#374151"/>
+                    <RadioButton x:Name="P7_Opcion3" Content="Frecuentemente, sin razón aparente" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 8 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="8. ¿Has notado oscurecimiento en el cuello o axilas (Acantosis Nigricans)?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P8_Opcion1" Content="No, el tono de piel es uniforme" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P8_Opcion2" Content="Tengo manchas leves" TextColor="#374151"/>
+                    <RadioButton x:Name="P8_Opcion3" Content="Sí, tengo zonas visiblemente más oscuras y aterciopeladas" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 9 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="9. ¿Cómo es el proceso de curación de tus heridas o cortaduras?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P9_Opcion1" Content="Sanan rápido y sin complicaciones" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P9_Opcion2" Content="Tardan un poco más de lo normal" TextColor="#374151"/>
+                    <RadioButton x:Name="P9_Opcion3" Content="Tardan mucho tiempo en cicatrizar o se infectan fácil" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PREGUNTA 10 -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="10. ¿Presentas episodios frecuentes de visión borrosa?" FontAttributes="Bold" TextColor="#1F2937" FontSize="15"/>
+                    <RadioButton x:Name="P10_Opcion1" Content="No, mi visión es clara" TextColor="#374151" IsChecked="True"/>
+                    <RadioButton x:Name="P10_Opcion2" Content="Solo por fatiga visual frente a pantallas" TextColor="#374151"/>
+                    <RadioButton x:Name="P10_Opcion3" Content="Sí, experimento cambios repentinos y visión borrosa" TextColor="#374151"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- BOTÓN DE EVALUAR -->
+            <Button Text="EVALUAR Y GUARDAR" 
+                    BackgroundColor="#0066CC" 
+                    TextColor="White" 
+                    CornerRadius="20" 
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    Margin="0,10,0,30"
+                    Clicked="OnEvaluarClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

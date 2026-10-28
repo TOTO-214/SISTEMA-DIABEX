@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.EmergenciaPage"
+             Title="Asistencia de Emergencia"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <!-- Botón Grande de Llamada Directa -->
+            <Frame CornerRadius="20" BackgroundColor="#D32F2F" Padding="20" HasShadow="True" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label Text="🚨" FontSize="48" HorizontalOptions="Center"/>
+                    <Label Text="Llamar a Emergencia" FontAttributes="Bold" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="ContactoLabel" Text="Contacto no configurado" TextColor="#FFCDD2" FontSize="Small" HorizontalOptions="Center"/>
+
+                    <Button Text="📞 LLAMAR AHORA" 
+                            BackgroundColor="White" 
+                            TextColor="#D32F2F" 
+                            FontAttributes="Bold" 
+                            FontSize="Medium"
+                            CornerRadius="12" 
+                            HeightRequest="50"
+                            Margin="0,10,0,0"
+                            Clicked="OnLlamarContactoClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Configuración del Contacto Local -->
+            <Frame CornerRadius="15" Padding="15" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                   BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="⚙️ Configurar Contacto de Confianza" FontAttributes="Bold" FontSize="Medium" TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                    <Entry x:Name="TelefonoEntry" Placeholder="Ej. 70001122 o 911" Keyboard="Telephone"/>
+                    <Button Text="Guardar Número" BackgroundColor="#0066CC" TextColor="White" FontAttributes="Bold" CornerRadius="10" HeightRequest="40" Clicked="OnGuardarContactoClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Protocolo Rápido ante Bajón de Azúcar (Hipoglucemia) -->
+            <Frame CornerRadius="15" Padding="15" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#2C2013}"
+                   BorderColor="{AppThemeBinding Light=#FFE0B2, Dark=#4A3B18}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="⚠️ ¿Sientes mareo, temblor o sudor frío?" FontAttributes="Bold" FontSize="Medium" TextColor="#E65100"/>
+                    <Label Text="Aplica la Regla 15-15 de inmediato:" FontAttributes="Bold" FontSize="Small" TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+
+                    <VerticalStackLayout Spacing="6" Margin="10,0,0,0">
+                        <Label Text="1. Consume 15g de carbohidratos de rápida acción (medio vaso de jugo o 3 caramelos)." TextColor="{AppThemeBinding Light=#424242, Dark=#D6D6D6}"/>
+                        <Label Text="2. Espera 15 minutos en reposo." TextColor="{AppThemeBinding Light=#424242, Dark=#D6D6D6}"/>
+                        <Label Text="3. Mide tu glucosa nuevamente." TextColor="{AppThemeBinding Light=#424242, Dark=#D6D6D6}"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botón Volver al Inicio -->
+            <Button Text="Volver al Inicio" 
+                    BackgroundColor="Transparent" 
+                    TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" 
+                    BorderColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                    BorderWidth="1.5" FontAttributes="Bold" CornerRadius="10" HeightRequest="45"
+                    Clicked="OnVolverInicioClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

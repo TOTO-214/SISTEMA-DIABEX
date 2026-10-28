@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.DashboardPage"
+             Title="Inicio"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <!-- 1. Encabezado de Saludo Personalizado -->
+            <Grid ColumnDefinitions="*, Auto" VerticalOptions="Center">
+                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                    <Label x:Name="GreetingLabel" 
+                           Text="¡Hola de nuevo!" 
+                           FontSize="22" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                    <Label x:Name="DateLabel" 
+                           Text="Cargando fecha..." 
+                           FontSize="14" 
+                           TextColor="Gray"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- 2. Recordatorio de Medicación (Toca para ir a RecordatoriosPage) -->
+            <Frame CornerRadius="15" 
+                   Padding="15" 
+                   BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#1A2634}" 
+                   BorderColor="{AppThemeBinding Light=#BBDEFB, Dark=#2A3B50}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRecordatoriosTapped"/>
+                </Frame.GestureRecognizers>
+                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="⏰" FontSize="28" VerticalOptions="Center"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="Mis Recordatorios" FontAttributes="Bold" TextColor="#0066CC" FontSize="Small"/>
+                        <Label Text="Toca aquí para ver o agregar tus alarmas" TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- 3. Cuadrícula de Accesos Rápidos (2x2) -->
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *" RowSpacing="15" ColumnSpacing="15">
+
+                <!-- Chequéate -->
+                <Frame Grid.Row="0" Grid.Column="0" CornerRadius="15" Padding="15" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}" BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnChequeateTapped"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                        <Image Source="chequeate.png" HeightRequest="36" WidthRequest="36"/>
+                        <Label Text="Chequéate" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                        <Label Text="Evaluación de salud para obtener tu resultado sobre la diabetes." FontSize="11" TextColor="Gray" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Tarjeta del Temporizador Post-Comida -->
+                <Frame Grid.Row="0" Grid.Column="1" CornerRadius="15" Padding="15" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}" 
+                       BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTemporizadorTapped"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                        <Label Text="⏱️" FontSize="28" HorizontalOptions="Center"/>
+                        <Label Text="Post-Comida" FontAttributes="Bold" HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                        <Label Text="Alarma para medir tu glucosa 2h despues de comer." FontSize="11" TextColor="Gray" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Calculadora de Carbohidratos -->
+                <Frame Grid.Row="1" Grid.Column="0" CornerRadius="15" Padding="15" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}" BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCalculadoraTapped"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                        <Label Text="🥗" FontSize="28" HorizontalOptions="Center"/>
+                        <Label Text="Carbohidratos" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                        <Label Text="Calcula la cantidad de carbohidratos que consumiras en tu plato." FontSize="11" TextColor="Gray" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Emergencia -->
+                <Frame Grid.Row="1" Grid.Column="1" CornerRadius="15" Padding="15" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}" BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEmergenciaTapped"/>
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                        <Label Text="🚨" FontSize="28" HorizontalOptions="Center"/>
+                        <Label Text="Emergencia" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#D32F2F"/>
+                        <Label Text="Contacto directo en caso de sufrir una emergencia." FontSize="11" TextColor="Gray" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- 4. Banner de Mis Resultados -->
+            <Frame CornerRadius="15" BackgroundColor="#0066CC" Padding="18" HasShadow="True" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMiCuentaTapped"/>
+                </Frame.GestureRecognizers>
+                <Grid ColumnDefinitions="*, Auto">
+                    <VerticalStackLayout Grid.Column="0" Spacing="3">
+                        <Label Text="Mis Resultados" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="Consulta el historial de tus evaluaciones" TextColor="#E0E0E0" FontSize="Small"/>
+                    </VerticalStackLayout>
+                    <Label Grid.Column="1" Text="➔" TextColor="White" FontSize="24" VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <!-- 5. Carrusel de Tips Saludables -->
+            <VerticalStackLayout Spacing="8">
+                <Label Text="💡 Tips Saludables del Día" 
+                       FontAttributes="Bold" 
+                       FontSize="16" 
+                       TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+
+                <CarouselView HeightRequest="110" Loop="True">
+                    <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Mantenerte bien hidratado ayuda a tus riñones a procesar el exceso de glucosa.</x:String>
+                            <x:String>Caminar 15 minutos después de comer reduce significativamente los picos de azúcar.</x:String>
+                            <x:String>Prioriza alimentos ricos en fibra como verduras de hoja verde y cereales integrales.</x:String>
+                        </x:Array>
+                    </CarouselView.ItemsSource>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="12" 
+                                   BackgroundColor="{AppThemeBinding Light=#FFF8E7, Dark=#2A2415}" 
+                                   BorderColor="{AppThemeBinding Light=#FFE0B2, Dark=#4A3B18}" 
+                                   Margin="2,0" 
+                                   Padding="15">
+                                <Label Text="{Binding .}" 
+                                       TextColor="{AppThemeBinding Light=#5D4037, Dark=#FFE0B2}" 
+                                       FontSize="Small" 
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

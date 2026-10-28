@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.CalculadoraCarbohidratosPage"
+             Title="Calculadora de Carbohidratos"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <!-- Card de Selección y Selección de Gramos -->
+            <Frame CornerRadius="15" Padding="15" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                   BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="🥗 Selecciona un Alimento" 
+                           FontAttributes="Bold" FontSize="Medium" 
+                           TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+
+                    <Picker x:Name="AlimentoPicker" 
+                            Title="Elige un alimento..." 
+                            ItemDisplayBinding="{Binding Nombre}" 
+                            SelectedIndexChanged="OnAlimentoSeleccionado"/>
+
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Cantidad (gramos):" FontAttributes="Bold" FontSize="Caption"/>
+                            <Entry x:Name="GramosEntry" Keyboard="Numeric" Text="100"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                            <Label Text="Carbos por 100g:" FontSize="Caption" TextColor="Gray"/>
+                            <Label x:Name="Carbos100gLabel" Text="0 g" FontAttributes="Bold" FontSize="Body"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Button Text="➕ Agregar al Plato" 
+                            BackgroundColor="#0066CC" TextColor="White" 
+                            FontAttributes="Bold" CornerRadius="10" HeightRequest="45"
+                            Clicked="OnAgregarAlPlatoClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Banner Total del Plato -->
+            <Frame CornerRadius="15" BackgroundColor="#2E7D32" Padding="15" HasShadow="True" BorderColor="Transparent">
+                <Grid ColumnDefinitions="*, Auto">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Total Carbohidratos en tu Plato" TextColor="#E8F5E9" FontSize="Caption"/>
+                        <Label x:Name="TotalCarbosLabel" Text="0.0 g" TextColor="White" FontSize="28" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                    <Button Grid.Column="1" Text="Limpiar" BackgroundColor="#1B5E20" TextColor="White" 
+                            FontSize="Caption" CornerRadius="8" Clicked="OnLimpiarPlatoClicked"/>
+                </Grid>
+            </Frame>
+
+            <Label Text="Resumen de Alimentos Seleccionados" FontAttributes="Bold" FontSize="Large" TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+
+            <!-- Lista de Alimentos Agregados -->
+            <CollectionView x:Name="PlatoCollectionView" EmptyView="No has agregado alimentos a tu comida.">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" HasShadow="True" Margin="0,4" Padding="12"
+                               BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                               BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding Nombre}" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                                    <Label Text="{Binding DetalleGramaje}" FontSize="Caption" TextColor="Gray"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1" Text="{Binding CarbosTotalesText}" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" TextColor="#2E7D32"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Botón Volver al Inicio -->
+            <Button Text="Volver al Inicio" 
+                    BackgroundColor="Transparent" 
+                    TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" 
+                    BorderColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                    BorderWidth="1.5" FontAttributes="Bold" CornerRadius="10" HeightRequest="45"
+                    Clicked="OnVolverInicioClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

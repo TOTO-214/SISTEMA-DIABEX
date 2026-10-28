@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.SobreNosotrosPage"
+             Title="Sobre Nosotros"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+
+            <!-- TARJETA 1: ¿Quiénes somos? -->
+            <Frame CornerRadius="12" 
+                   HasShadow="True" 
+                   Padding="15"
+                   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                   BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" VerticalOptions="Center">
+                        <Label Text="¿Quiénes somos?" 
+                               FontAttributes="Bold" 
+                               FontSize="Large"
+                               TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                        <Label Text="Somos CODE SV un equipo de programadores salvadoreños, esforzándonos cada día para brindar una excelente experiencia de navegación en nuestras aplicaciónes."
+                               TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+                    </VerticalStackLayout>
+
+                    <Image Grid.Column="1"
+                           Source="csv.jpg"
+                           HeightRequest="75"
+                           WidthRequest="150"
+                           Aspect="AspectFit"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <!-- TARJETA 2: ¿Nuestro propósito? -->
+            <Frame CornerRadius="12" 
+                   HasShadow="True" 
+                   Padding="15"
+                   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                   BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" VerticalOptions="Center">
+                        <Label Text="¿Nuestro propósito?" 
+                               FontAttributes="Bold" 
+                               FontSize="Large"
+                               TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                        <Label Text="Es crear aplicaciones sencillas de utilizar para nuestros usuarios y asi no complicar el uso de estas mismas."
+                               TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- TARJETA 3: ¿Por qué nos enfocamos en esto? -->
+            <Frame CornerRadius="12" 
+                   HasShadow="True" 
+                   Padding="15"
+                   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                   BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" VerticalOptions="Center">
+                        <Label Text="¿Por qué nos enfocamos en esto?" 
+                               FontAttributes="Bold" 
+                               FontSize="Large"
+                               TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"/>
+                        <Label Text="Porque una detección a tiempo y un estilo de vida saludable previenen complicaciones graves de salud a largo plazo."
+                               TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

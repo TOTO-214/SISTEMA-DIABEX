@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.LoginPage"
+             Title="Iniciar Sesión"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+            <Image Source="logo_diabex.png"
+                   HeightRequest="200"
+                   WidthRequest="300"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,10" />
+
+            <Entry x:Name="EmailEntry" 
+                   Placeholder="Correo Electrónico" 
+                   Keyboard="Email"
+                   TextColor="{AppThemeBinding Light=#333333, Dark=#FFFFFF}"
+                   PlaceholderColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}"/>
+
+            <!-- Campo Contraseña con Ojo Integrado DENTRO del Cuadro -->
+            <Grid VerticalOptions="Center">
+                <Entry x:Name="PasswordEntry" 
+                       Placeholder="Contraseña" 
+                       IsPassword="True"
+                       TextColor="{AppThemeBinding Light=#333333, Dark=#FFFFFF}"
+                       PlaceholderColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}"/>
+
+                <Image x:Name="TogglePasswordButton"
+                       Source="ojocerrado.png"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="AspectFit"
+                       BackgroundColor="Transparent"
+                       Margin="0,0,12,0"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTogglePasswordClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Button Text="INICIAR" 
+                    BackgroundColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" 
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    CornerRadius="20"
+                    Margin="0,10,0,0"
+                    Clicked="OnLoginUserClicked"/>
+
+            <Button Text="REGRESAR" 
+                    BackgroundColor="Transparent" 
+                    TextColor="{AppThemeBinding Light=#0066CC, Dark=#FFFFFF}" 
+                    BorderColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                    BorderWidth="1.5"
+                    FontAttributes="Bold"
+                    CornerRadius="20"
+                    Clicked="OnRegresarClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

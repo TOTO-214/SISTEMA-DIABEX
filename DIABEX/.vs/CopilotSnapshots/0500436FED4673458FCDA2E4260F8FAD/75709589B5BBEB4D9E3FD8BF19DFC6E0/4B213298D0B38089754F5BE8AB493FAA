@@ -1,0 +1,98 @@
+﻿using DIABEX.Models;
+using DIABEX.Services;
+
+namespace DIABEX.Views;
+
+public partial class RecordatoriosPage : ContentPage
+{
+    public RecordatoriosPage()
+    {
+        InitializeComponent();
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await CargarRecordatoriosAsync();
+    }
+
+    private async Task CargarRecordatoriosAsync()
+    {
+        try
+        {
+            var currentUser = SupabaseService.Instance.Auth.CurrentUser;
+            if (currentUser == null) return;
+
+            var respuesta = await SupabaseService.Instance
+                .From<Recordatorio>()
+                .Where(x => x.UserId == currentUser.Id)
+                .Get();
+
+            RecordatoriosCollectionView.ItemsSource = respuesta.Models;
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"No se pudieron cargar los recordatorios: {ex.Message}", "OK");
+        }
+    }
+
+    private async void OnGuardarRecordatorioClicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(TituloEntry.Text))
+        {
+            await DisplayAlert("Atención", "Escribe un título para el recordatorio.", "OK");
+            return;
+        }
+
+        try
+        {
+            var currentUser = SupabaseService.Instance.Auth.CurrentUser;
+            if (currentUser == null) return;
+
+            // Formato de hora limpio HH:mm
+            string horaFormateada = DateTime.Today.Add(HoraPicker.Time).ToString("hh:mm tt");
+
+            var nuevoRecordatorio = new Recordatorio
+            {
+                UserId = currentUser.Id,
+                Titulo = TituloEntry.Text,
+                Hora = horaFormateada,
+                Activo = true
+            };
+
+            await SupabaseService.Instance.From<Recordatorio>().Insert(nuevoRecordatorio);
+
+            TituloEntry.Text = string.Empty;
+            await CargarRecordatoriosAsync();
+            await DisplayAlert("Éxito", "Recordatorio guardado correctamente.", "OK");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"No se pudo guardar: {ex.Message}", "OK");
+        }
+    }
+
+    private async void OnEliminarClicked(object sender, EventArgs e)
+    {
+        if (sender is Button btn && btn.CommandParameter is Recordatorio item)
+        {
+            bool confirmar = await DisplayAlert("Eliminar", $"¿Deseas eliminar '{item.Titulo}'?", "Sí", "No");
+            if (confirmar)
+            {
+                try
+                {
+                    await SupabaseService.Instance
+                        .From<Recordatorio>()
+                        .Where(x => x.Id == item.Id)
+                        .Delete();
+
+                    await CargarRecordatoriosAsync();
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"No se pudo eliminar: {ex.Message}", "OK");
+                }
+            }
+        }
+    }
+}

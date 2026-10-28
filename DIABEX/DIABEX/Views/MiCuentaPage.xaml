@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.MiCuentaPage"
+             Title="Mi Cuenta">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+            <Frame CornerRadius="15" HasShadow="True" Padding="15" BackgroundColor="#0066CC">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="PERFIL DE USUARIO" TextColor="White" FontAttributes="Bold" FontSize="Small"/>
+                    <Label x:Name="EmailLabel" Text="Cargando..." TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+                    <Label x:Name="TotalTestsLabel" Text="Pruebas realizadas: 0" TextColor="#E0E0E0" FontSize="Medium"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Historial de Evaluaciones" FontAttributes="Bold" FontSize="Large" TextColor="#333333"/>
+
+            <CollectionView x:Name="HistorialCollectionView" EmptyView="Aún no has realizado ninguna evaluación.">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="12" HasShadow="True" Margin="0,5" Padding="12" BackgroundColor="#F8F9FA">
+                            <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto" RowSpacing="5">
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding ResultadoTexto}" FontAttributes="Bold" FontSize="Medium" TextColor="#0066CC"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Puntaje, StringFormat='Puntos: {0}'}" FontAttributes="Bold"/>
+                                <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}" FontSize="Small" TextColor="Gray"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- BOTÓN REGRESAR -->
+            <Button Text="REGRESAR A INICIO"
+                    BackgroundColor="#0066CC" 
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    CornerRadius="25" 
+                    HeightRequest="50"
+                    Margin="0,10,0,0"
+                    Clicked="OnRegresarClicked"/>
+
+            <!-- BOTÓN CERRAR SESIÓN -->
+            <Button Text="Cerrar Sesión" 
+                    BackgroundColor="#D32F2F" 
+                    TextColor="White" 
+                    CornerRadius="25" 
+                    HeightRequest="50"
+                    Margin="0,0,0,10"
+                    Clicked="OnCerrarSesionClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

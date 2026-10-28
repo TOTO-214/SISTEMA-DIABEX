@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TODO DE DIABEX\\SISTEMA DIABEX\\DIABEX\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{93D61D1A-AB0D-72C0-7D74-E56CE59C22F2}|DIABEX\\DIABEX.csproj|d:\\todo de diabex\\sistema diabex\\diabex\\diabex\\views\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93D61D1A-AB0D-72C0-7D74-E56CE59C22F2}|DIABEX\\DIABEX.csproj|solutionrelative:diabex\\views\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93D61D1A-AB0D-72C0-7D74-E56CE59C22F2}|DIABEX\\DIABEX.csproj|d:\\todo de diabex\\sistema diabex\\diabex\\diabex\\views\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{93D61D1A-AB0D-72C0-7D74-E56CE59C22F2}|DIABEX\\DIABEX.csproj|solutionrelative:diabex\\views\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 84,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterPage.xaml.cs",
+              "DocumentMoniker": "D:\\TODO DE DIABEX\\SISTEMA DIABEX\\DIABEX\\DIABEX\\Views\\RegisterPage.xaml.cs",
+              "RelativeDocumentMoniker": "DIABEX\\Views\\RegisterPage.xaml.cs",
+              "ToolTip": "D:\\TODO DE DIABEX\\SISTEMA DIABEX\\DIABEX\\DIABEX\\Views\\RegisterPage.xaml.cs",
+              "RelativeToolTip": "DIABEX\\Views\\RegisterPage.xaml.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAQwFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T23:17:10.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterPage.xaml",
+              "DocumentMoniker": "D:\\TODO DE DIABEX\\SISTEMA DIABEX\\DIABEX\\DIABEX\\Views\\RegisterPage.xaml",
+              "RelativeDocumentMoniker": "DIABEX\\Views\\RegisterPage.xaml",
+              "ToolTip": "D:\\TODO DE DIABEX\\SISTEMA DIABEX\\DIABEX\\DIABEX\\Views\\RegisterPage.xaml",
+              "RelativeToolTip": "DIABEX\\Views\\RegisterPage.xaml",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwDwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-18T23:16:58.801Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 84,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.RegisterPage"
+             Title="Registro">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+            <Entry x:Name="NombreEntry" Placeholder="Nombre Completo" />
+            <Entry x:Name="EmailEntry" Placeholder="Correo Electrónico" Keyboard="Email"/>
+
+            <!-- Campo Contraseña con Ojito Integrado -->
+            <Grid VerticalOptions="Center">
+                <Entry x:Name="PasswordEntry" 
+                       Placeholder="Contraseña" 
+                       IsPassword="True"/>
+
+                <Image x:Name="TogglePasswordButton"
+                       Source="ojocerrado.png"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="AspectFit"
+                       BackgroundColor="Transparent"
+                       Margin="0,0,12,0"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTogglePasswordClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <!-- Campo Confirmar Contraseña con Ojito Integrado -->
+            <Grid VerticalOptions="Center">
+                <Entry x:Name="ConfirmPasswordEntry" 
+                       Placeholder="Confirmar Contraseña" 
+                       IsPassword="True"/>
+
+                <Image x:Name="ToggleConfirmPasswordButton"
+                       Source="ojocerrado.png"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="AspectFit"
+                       BackgroundColor="Transparent"
+                       Margin="0,0,12,0"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnToggleConfirmPasswordClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Button Text="CREAR CUENTA" 
+                    BackgroundColor="#0066CC" 
+                    TextColor="White" 
+                    CornerRadius="20"
+                    Clicked="OnRegisterUserClicked"/>
+
+            <Button Text="REGRESAR" 
+                    BackgroundColor="Transparent" 
+                    TextColor="#0066CC" 
+                    BorderColor="#0066CC"
+                    BorderWidth="1.5"
+                    CornerRadius="20"
+                    Clicked="OnRegresarClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

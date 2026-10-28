@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.CuidadosPage"
+             Title="Recomendaciones"
+             BackgroundColor="#F4F6F9">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+
+            <!-- Banner Principal de Estado -->
+            <Frame x:Name="BannerEstado" CornerRadius="15" Padding="20" HasShadow="True" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="5">
+                    <Label x:Name="TituloEstadoLabel" FontSize="20" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    <Label x:Name="SubtituloEstadoLabel" FontSize="13" TextColor="#F0F0F0" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Tarjeta 1: Nutrición y Alimentación -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🥗 Nutrición y Alimentación" FontAttributes="Bold" FontSize="16" TextColor="#0066CC"/>
+                    <Label x:Name="AlimentacionLabel" TextColor="#374151" FontSize="14"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Tarjeta 2: Actividad Física y Hábitos -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🏃 Actividad Física y Hábitos" FontAttributes="Bold" FontSize="16" TextColor="#0066CC"/>
+                    <Label x:Name="EjercicioLabel" TextColor="#374151" FontSize="14"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Tarjeta 3: Monitoreo y Prevención Médica -->
+            <Frame CornerRadius="12" Padding="15" BackgroundColor="White" HasShadow="True" BorderColor="#E0E0E0">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🩺 Monitoreo y Prevención" FontAttributes="Bold" FontSize="16" TextColor="#0066CC"/>
+                    <Label x:Name="MonitoreoLabel" TextColor="#374151" FontSize="14"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botón Volver al Dashboard -->
+            <Button Text="VOLVER AL INICIO" 
+                    BackgroundColor="#0066CC" 
+                    TextColor="White" 
+                    CornerRadius="20" 
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    Margin="0,10,0,20"
+                    Clicked="OnVolverClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

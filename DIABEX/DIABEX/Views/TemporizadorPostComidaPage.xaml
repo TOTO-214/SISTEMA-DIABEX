@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.TemporizadorPostComidaPage"
+             Title="Control Post-Comida"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <!-- Card Principal del Temporizador -->
+            <Frame CornerRadius="20" Padding="20" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                   BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#2C2C2C}">
+                <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+
+                    <Label Text="🍽️ Medición Postprandial" 
+                           FontAttributes="Bold" FontSize="18" 
+                           TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" 
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="Usa esta herramienta al terminar de comer para saber el momento exacto de medir tu glucosa (2 horas después)." 
+                           FontSize="Caption" TextColor="Gray" HorizontalTextAlignment="Center"/>
+
+                    <!-- Reloj Visual / Tiempo Restante -->
+                    <Frame CornerRadius="100" WidthRequest="180" HeightRequest="180" 
+                           BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#1A2634}"
+                           BorderColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                           Padding="0" HorizontalOptions="Center">
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="2">
+                            <Label x:Name="TimerTextLabel" Text="02:00:00" FontAttributes="Bold" FontSize="32" 
+                                   TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" HorizontalOptions="Center"/>
+                            <Label x:Name="HoraObjetivoLabel" Text="Presiona Iniciar" FontSize="Caption" TextColor="Gray" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Botones de Acción -->
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="10" WidthRequest="260">
+                        <Button Grid.Column="0" x:Name="StartButton" Text="▶ Iniciar" 
+                                BackgroundColor="#0066CC" TextColor="White" 
+                                FontAttributes="Bold" CornerRadius="10" HeightRequest="45"
+                                Clicked="OnIniciarTemporizadorClicked"/>
+
+                        <Button Grid.Column="1" x:Name="ResetButton" Text="⏹ Reiniciar" 
+                                BackgroundColor="#D32F2F" TextColor="White" 
+                                FontAttributes="Bold" CornerRadius="10" HeightRequest="45"
+                                Clicked="OnReiniciarTemporizadorClicked"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Card Informativa sobre la Glucosa Postprandial -->
+            <Frame CornerRadius="15" Padding="15" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1B2E1E}"
+                   BorderColor="{AppThemeBinding Light=#C8E6C9, Dark=#2E4D32}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="💡 ¿Por qué medirse 2 horas después?" FontAttributes="Bold" FontSize="Medium" TextColor="#2E7D32"/>
+                    <Label Text="En este punto la comida ya ha sido procesada. Un nivel ideal postprandial en adultos suele ser menor a 180 mg/dL (o según la meta asignada por tu médico)." 
+                           FontSize="Small" TextColor="{AppThemeBinding Light=#333333, Dark=#E0E0E0}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botón Volver al Inicio -->
+            <Button Text="Volver al Inicio" 
+                    BackgroundColor="Transparent" 
+                    TextColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" 
+                    BorderColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                    BorderWidth="1.5" FontAttributes="Bold" CornerRadius="10" HeightRequest="45"
+                    Clicked="OnVolverInicioClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIABEX.Views.BienvenidaPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding Light=#F4F6F9, Dark=#121212}">
+
+    <ScrollView>
+        <Grid RowDefinitions="*, Auto, Auto" Padding="30" VerticalOptions="Center" RowSpacing="20">
+
+            <Image Source="logo_diabex.png" 
+                   HeightRequest="150" 
+                   HorizontalOptions="Center" 
+                   Grid.Row="0"/>
+
+            <!-- Botón Iniciar Sesión -->
+            <Button Text="INICIAR SESIÓN" 
+                    Grid.Row="1"
+                    BackgroundColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="OnLoginClicked"/>
+
+            <!-- Botón Crear Cuenta (Totalmente visible en ambos temas) -->
+            <Button Text="CREAR CUENTA" 
+                    Grid.Row="2"
+                    BackgroundColor="Transparent" 
+                    TextColor="{AppThemeBinding Light=#0066CC, Dark=#FFFFFF}"
+                    BorderColor="{AppThemeBinding Light=#0066CC, Dark=#4DA6FF}"
+                    BorderWidth="2"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="OnRegisterClicked"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>
